@@ -122,8 +122,10 @@ Answer the following questions:
 Still car before making the project
 
 ![Screenshot from 2022-09-18 12-24-39](https://user-images.githubusercontent.com/71234974/190923018-fc05640b-6d9d-4a40-9257-07e6e52bf291.png)
+Steering error (blue) and steering output (orange) over time. Note how the output reacts to changes in the error. 
 
 ![Screenshot from 2022-09-18 12-24-51](https://user-images.githubusercontent.com/71234974/190923020-e36e2e17-6bfb-483b-8da9-46e3d7520321.png)
+throttle error (blue) and throttle output (orange) over time. Note how the output reacts to changes in the error. 
 
 The proportional term causes an steering output that has the same shape as the error but it is scaled by a constant amount. The derivate term causes an overshoot on the steering output every time the steering error changes significantly. The integral term causes the steering output to increase on constant steering errors.
 
