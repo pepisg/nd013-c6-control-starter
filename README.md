@@ -116,3 +116,23 @@ Answer the following questions:
 - If the simulation freezes on the desktop mode but is still running on the terminal, close the desktop and restart it.
 - When you will be tuning the PID parameters, try between those values:
 
+## Project report
+
+![Screenshot from 2022-09-18 11-07-08](https://user-images.githubusercontent.com/71234974/190923001-7041c45b-ee9b-42df-8ea4-9eb88d45e6c2.png)
+Still car before making the project
+
+![Screenshot from 2022-09-18 12-24-39](https://user-images.githubusercontent.com/71234974/190923018-fc05640b-6d9d-4a40-9257-07e6e52bf291.png)
+
+![Screenshot from 2022-09-18 12-24-51](https://user-images.githubusercontent.com/71234974/190923020-e36e2e17-6bfb-483b-8da9-46e3d7520321.png)
+
+The proportional term causes an steering output that has the same shape as the error but it is scaled by a constant amount. The derivate term causes an overshoot on the steering output every time the steering error changes significantly. The integral term causes the steering output to increase on constant steering errors.
+
+- How would you design a way to automatically tune the PID parameters?
+The twiddle method exposed in the course may me implemented, and would be particularly useful ion thgis scenario where a simulation is easily available to run and assess thousands of tests very quicly. However its important that the simulation accurately represents the dynamics of the actual vehicle. To ensure that a system model may be built from real world data to tune the simulation.
+
+
+- PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
+The main pro is simplicity. Building accurate dynamic models is often really hard. Another advantage is that it has only 3 parameters to tune. The cons are that car dynamics may not be linear at different velocities, which may cause a set of Kp, Ki and Kd paramters to work only at certain speeds and cause undesired behaviors at others. Also tuning may me more precise if a dynamic model of the system is known.
+
+- What would you do to improve the PID controller?
+Increase the sampling frequency. The simulation has a extermely low frequency that is unsuitable for highly dynamic system like cars. Also a low pass filter may be added to the derivative component to filter noise out of the control output.
